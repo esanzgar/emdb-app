@@ -24,6 +24,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-icons.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/emdb-slices/emdb-slices.html">
+<link rel="import" href="../bower_components/emdb-surfaces/emdb-surfaces.html">
+<link rel="import" href="../bower_components/emdb-densities/emdb-densities.html">
+<link rel="import" href="../bower_components/emdb-gradients/emdb-gradients.html">
 
 <dom-module id="my-app">
   <template>
@@ -109,6 +112,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <h1>{{item.title}}</h1>
                     <p>{{item.authors}}</p>
                     <emdb-slices class="small" entry="EMD-{{item.emdbid}}"></emdb-slices>
+                    <!--div hidden$="[[item.isTomo]]"-->
+                    <template is="dom-if" if="[[!item.isTomo]]">
+                        <br>
+                        <emdb-surfaces class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-surfaces>
+                        <br>
+                        <emdb-densities class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-densities>
+                        <br>
+                        <emdb-gradients class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-gradients>
+                    </template>
+                    <!--/div-->
                   </div>
               </template>
           </div>
@@ -178,10 +191,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             menu[firstLevel] = menu[firstLevel] || {};
             menu[firstLevel][secondLevel] = menu[firstLevel][secondLevel] || {};
             menu[firstLevel][secondLevel][entry.emdbid] = entry;
-        });
+            menu[firstLevel][secondLevel][entry.emdbid]['isTomo'] = entry.em_method === 'tomography';
+        })
         this.menuFirstLevel = Object.keys(menu);
         this.entries = menu;
         this.test = Object.values(menu[1][10]);
+        debugger
       }
     });
   </script>
