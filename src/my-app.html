@@ -112,16 +112,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <h1>{{item.title}}</h1>
                     <p>{{item.authors}}</p>
                     <emdb-slices class="small" entry="EMD-{{item.emdbid}}"></emdb-slices>
-                    <!--div hidden$="[[item.isTomo]]"-->
-                    <template is="dom-if" if="[[!item.isTomo]]">
+                    <div hidden$="[[item.isTomo]]">
                         <br>
                         <emdb-surfaces class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-surfaces>
                         <br>
                         <emdb-densities class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-densities>
                         <br>
                         <emdb-gradients class="small" entry="EMD-{{item.emdbid}}" close="true"></emdb-gradients>
-                    </template>
-                    <!--/div-->
+                    </div>
                   </div>
               </template>
           </div>
