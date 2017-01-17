@@ -17,10 +17,10 @@
     "paper-icon-button": "PolymerElements/paper-icon-button#~1.1.0",
     "polymer": "Polymer/polymer#^1.6.0",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
-    "emdb-slices": "esanzgar/emdb-slices",
-    "emdb-densities": "esanzgar/emdb-densities",
-    "emdb-surfaces": "esanzgar/emdb-surfaces",
-    "emdb-gradients": "esanzgar/emdb-gradients"
+    "emdb-gradients": "esanzgar/emdb-gradients#thicker_lines",
+    "emdb-surfaces": "esanzgar/emdb-surfaces#thicker_lines",
+    "emdb-densities": "esanzgar/emdb-densities#thicker_lines",
+    "emdb-slices": "esanzgar/emdb-slices"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
